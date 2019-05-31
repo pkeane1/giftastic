@@ -26,7 +26,7 @@ $("#add-animal").on("click",function() {
     topics.push(newAnimal)
     $("#buttondiv").empty();
     buttonappear();
-    $("#animal-input").val(" ");
+    $("#animal-input").val(" ");//emptys form
 })
 
 
@@ -47,11 +47,20 @@ $("#buttondiv").on("click",".animal-button",function(){
         console.log(imageURL);
                 for (var i = 0; i < imageURL.length; i++) {
                     console.log(i);
+                    
                     var aImage = $("<img>")
                     aImage.attr("src",imageURL[i].images.fixed_height_small.url)
-                    aImage.attr("alt", "gif");
+                    
+                    
+                    aImage.attr("data-still",imageURL[i].images.fixed_height_small_still.url)
+                    aImage.attr("data-animate",imageURL[i].images.fixed_height_small.url)
+                    
+                    
                     aImage.addClass("newgifs");
                     var rate = $("<p>").text("Rating: " + imageURL[i].rating)
+                    
+                    
+                    
                     $("#gifdiv").append(aImage)
                     $("#gifdiv").append(rate)
                     
@@ -62,9 +71,10 @@ $("#buttondiv").on("click",".animal-button",function(){
 
 
 })
-
-    $(".newgifs").on("click",function(){
+// $(".newgifs")on("click" function(){ ---- 
+    function movingGif(){
         var state = $(this).attr("data-state");
+        console.log("clicked")
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
@@ -73,6 +83,8 @@ $("#buttondiv").on("click",".animal-button",function(){
             $(this).attr("data-state", "still");
           }
     
+    }
+    $(document).on("click",".newgifs",movingGif);
     });
 
 
@@ -80,5 +92,5 @@ $("#buttondiv").on("click",".animal-button",function(){
 
 
 
-});
+
 
