@@ -1,0 +1,26 @@
+body { 
+    background: url(https://cdn5.vectorstock.com/i/1000x1000/56/39/green-background-with-trees-vector-885639.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+h1{
+    font-family: 'Amatic SC', cursive;
+    font-size: 65px;
+}
+
+.animal-button{
+    margin:5px 5px 5px 5px;
+}
+
+.newgifs{
+    height: 200px;
+    width: 200px;
+}
+
+#gifdiv{
+    margin-top:15px;
+    
+}
